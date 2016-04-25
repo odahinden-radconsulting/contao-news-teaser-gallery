@@ -14,9 +14,4 @@
 /**
  * Front end modules
  */
-$GLOBALS['FE_MOD']['user']['lostPasswordLimitedAccess'] = 'ModulePasswordLimitedAccess';
-
-/**
- * Front end modules
- */
 $GLOBALS['FE_MOD']['news']['newsarchivegallery'] = 'ModuleNewsArchiveGallery';

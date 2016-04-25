@@ -1,4 +1,4 @@
-dca<?php
+<?php
 /**
  * Contao Open Source CMS
  *
@@ -22,5 +22,5 @@ ClassLoader::addNamespaces(array
  */
 ClassLoader::addClasses(array
 (
-    'Contao\ModulePasswordLimitedAccess'            => 'system/modules/contao-limited-password-recovery/modules/ModulePasswordLimitedAccess.php',
+    'Contao\ModuleNewsArchiveGallery'            => 'system/modules/contao-news-teaser-gallery/modules/ModuleNewsArchiveGallery.php',
 ));
