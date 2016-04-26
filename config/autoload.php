@@ -16,6 +16,7 @@
 ClassLoader::addNamespaces(array
 (
     'Contao',
+    'ContaoGallery'
 ));
 /**
  * Register the classes
@@ -23,6 +24,7 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
     'Contao\ModuleNewsArchiveGallery'            => 'system/modules/contao-news-teaser-gallery/modules/ModuleNewsArchiveGallery.php',
+    'ContaoGallery\ModuleNewsReader'            => 'system/modules/contao-news-teaser-gallery/modules/ModuleNewsReader.php',
 ));
 
 
