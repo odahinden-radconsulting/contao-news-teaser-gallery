@@ -16,7 +16,7 @@ namespace Contao;
  *
  * @author Leo Feyer <https://github.com/leofeyer>
  */
-class ModuleNewsArchiveGallery extends \ModuleNews
+class ModuleNewsArchiveGallery extends \ModuleNewsArchive
 {
 
 	/**
@@ -24,55 +24,6 @@ class ModuleNewsArchiveGallery extends \ModuleNews
 	 * @var string
 	 */
 	protected $strTemplate = 'mod_newsarchive';
-
-
-	/**
-	 * Display a wildcard in the back end
-	 *
-	 * @return string
-	 */
-	public function generate()
-	{
-		if (TL_MODE == 'BE')
-		{
-			/** @var \BackendTemplate|object $objTemplate */
-			$objTemplate = new \BackendTemplate('be_wildcard');
-
-			$objTemplate->wildcard = '### ' . utf8_strtoupper($GLOBALS['TL_LANG']['FMD']['newsarchive'][0]) . ' ###';
-			$objTemplate->title = $this->headline;
-			$objTemplate->id = $this->id;
-			$objTemplate->link = $this->name;
-			$objTemplate->href = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $this->id;
-
-			return $objTemplate->parse();
-		}
-
-		$this->news_archives = $this->sortOutProtected(deserialize($this->news_archives));
-
-		// No news archives available
-		if (!is_array($this->news_archives) || empty($this->news_archives))
-		{
-			return '';
-		}
-
-		// Show the news reader if an item has been selected
-		if ($this->news_readerModule > 0 && (isset($_GET['items']) || (\Config::get('useAutoItem') && isset($_GET['auto_item']))))
-		{
-			return $this->getFrontendModule($this->news_readerModule, $this->strColumn);
-		}
-
-		// Hide the module if no period has been selected
-		if ($this->news_jumpToCurrent == 'hide_module' && !isset($_GET['year']) && !isset($_GET['month']) && !isset($_GET['day']))
-		{
-			return '';
-		}
-
-
-
-
-
-		return parent::generate();
-	}
 
 
 	/**
