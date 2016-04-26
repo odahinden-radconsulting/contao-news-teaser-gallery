@@ -1,0 +1,47 @@
+<?php
+$archiveId = uniqid();
+?>
+<div class="news-teaser-gallery" id="news-archive-<?= $archiveId ?>">
+    <div class="content-slider">
+        <div class="slider-wrapper">
+            <?php foreach ($this->body as $class=>$row): ?>
+                <?php foreach ($row as $col): ?>
+                    <?php if ($col->addImage): ?>
+                        <div class="<?= $class ?> <?= $col->class ?>">
+                            <figure class="image_container">
+                                <?php if ($col->href): ?>
+                                    <a href="<?= $col->href ?>"<?= $col->attributes ?> title="<?= $col->alt ?>"><?php $this->insert('picture_default', $col->picture); ?></a>
+                                <?php else: ?>
+                                    <?php $this->insert('picture_newsletter', $col->picture); ?>
+                                <?php endif; ?>
+                                <?php if ($col->caption): ?>
+                                    <figcaption class="caption"><?= $col->caption ?></figcaption>
+                                <?php endif; ?>
+                            </figure>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="slider-control">
+        <span class="slider-prev"></span>
+        <span class="slider-next"></span>
+    </div>
+</div>
+<script>
+    (function() {
+        window.addEvent('domready', function() {
+            $$('#news-archive-<?= $archiveId ?>').each(function(cte) {
+                var s = cte.getElement('.content-slider');
+                new Swipe(s, {
+                    // Put custom options here
+                    'auto': 0,
+                    'speed': 0,
+                    'startSlide': 0,
+                    'menu': cte.getElement('.slider-control')
+                });
+            });
+        });
+    })();
+</script>

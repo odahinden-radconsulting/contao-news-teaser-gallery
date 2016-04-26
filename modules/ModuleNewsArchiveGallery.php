@@ -515,7 +515,7 @@ class ModuleNewsArchiveGallery extends \ModuleNews
         }
 
 
-        $strTemplate = 'gallery_default';
+        $strTemplate = 'gallery_slider';
 
 
         // Use a custom template

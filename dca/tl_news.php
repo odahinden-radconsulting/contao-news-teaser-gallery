@@ -93,6 +93,7 @@ $GLOBALS['TL_DCA']['tl_news']['fields']['galleryTpl'] = array(
     'label'                   => &$GLOBALS['TL_LANG']['tl_content']['galleryTpl'],
     'exclude'                 => true,
     'inputType'               => 'select',
+    'default'                 => 'gallery_slider',
     'options_callback'        => array('tl_news_gallery', 'getGalleryTemplates'),
     'eval'                    => array('tl_class'=>'w50'),
     'sql'                     => "varchar(64) NOT NULL default ''"
