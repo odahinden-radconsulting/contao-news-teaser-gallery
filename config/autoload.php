@@ -34,5 +34,5 @@ ClassLoader::addClasses(array
 TemplateLoader::addFiles(array
 (
     'gallery_slider'   => 'system/modules/contao-news-teaser-gallery/templates/',
-    'mod_newslist'      => 'system/modules/contao-news-teaser-gallery/templates/',
+    'news_latest_gallery'      => 'system/modules/contao-news-teaser-gallery/templates/',
 ));
