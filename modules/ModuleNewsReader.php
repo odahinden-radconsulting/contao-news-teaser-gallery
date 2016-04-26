@@ -38,6 +38,11 @@ class ModuleNewsReader extends Contao\ModuleNewsReader
 
         // Get the news item
         $objArticle = \NewsModel::findPublishedByParentAndIdOrAlias(Contao\Input::get('items'), $this->news_archives);
+
+        if (!$objArticle->addGallery) {
+            return;
+        }
+
         $files = Contao\FilesModel::findMultipleByUuids(deserialize($objArticle->multiSRC));
         $objArticle->images = $this->buildGallery($files, $objArticle->orderSrc, $objArticle->sortBy, $objArticle->perPage, $objArticle->numberOfItems, $objArticle->galleryTpl, $objArticle->size, $objArticle->fullsize, $objArticle->imagemargin, $objArticle->arrData);
         $this->Template->articles = $this->parseArticle($objArticle);
